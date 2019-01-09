@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+	// seting up replay
+replay = true
+while (replay == true) {
+	
+	// making variables
+	var Cmove;
+	var Cmove1;
+	var Cmove2;
+	var Cmove3;
+	var Cmove4;
+	var battle = true;
+	var Cpokemon;
+	var Pmove1;
+	var Pmove1PP = 20;
+
+	//creating the move damages
+	var Pmove1Damage = Math.floor(Math.random()*5)+5;
+	console.log(Pmove1Damage);
+	var Cmove1Damage = Pmove1Damage * 1.2;
+	var Pmove2;
+	var Pmove2Damage = Math.floor(Math.random()*10)+5;
+	console.log(Pmove2Damage);
+	var Cmove2Damage = Pmove2Damage * 1.2;
+	var Pmove2PP = 15;
+	var Pmove3;
+	var Pmove3Damage = Math.floor(Math.random()*20)+15;
+	console.log(Pmove3Damage);
+	var Cmove3Damage = Pmove3Damage * 1.2;
+	var Pmove3PP = 10;
+	var Pmove4;
+	var Pmove4Damage = Math.floor(Math.random()*25)+20;
+	console.log(Pmove4Damage);
+	var Cmove4Damage = Pmove4Damage * 1.2;
+	var Pmove4PP = 5;
+	var Phealth = 100;
+	var Chealth = 100;
+
+	Cmove1Damage = Math.floor(Cmove1Damage)
+	Cmove2Damage = Math.floor(Cmove2Damage)
+	Cmove3Damage = Math.floor(Cmove3Damage)
+	Cmove4Damage = Math.floor(Cmove4Damage)
+	//picking the pokemon
+	var pokemon = prompt("yo, pick a pokemon Bulbasaur, Charmander, Sqirtle. (1,2,3)");
+	pokemon = parseInt(pokemon)
+	while (!(pokemon >= 1 && pokemon <= 3)) {
+		pokemon = prompt(`dude, pick one of them Bulbasaur, Charmander, Sqirtle. (1,2,3)`);
+		pokemon = parseInt(pokemon)
+	}
+	if (pokemon == 1) {
+		pokemon = "Bulbasaur";
+		Pmove1 = "tackle"
+		Pmove2 = "Absorb"
+		Pmove3 = "Razor Leaf"
+		Pmove4 = "Vine Whip"
+		Cpokemon = "Charmander";
+		Cmove1 = "tackle"
+		Cmove2 = "Ember"
+		Cmove3 = "Fire Spin"
+		Cmove4 = "Fire Blast"
+	} if (pokemon == 2) {
+		pokemon = "Charmander";
+		Pmove1 = "tackle";
+		Pmove2 = "Ember";
+		Pmove3 = "Fire Spin";
+		Pmove4 = "Fire Blast";
+		Cpokemon = "Sqirtle";
+		Cmove1 = "Tackle";
+		Cmove2 = "Quick attack";
+		Cmove3 = "Water gun";
+		Cmove4 = "Wave";
+	} if (pokemon == 3) {
+		pokemon = "Sqirtle";
+		Pmove1 = "Tackle";
+		Pmove2 = "Quick attack";
+		Pmove3 = "Water gun";
+		Pmove4 = "Wave";
+		Cpokemon = "Bulbasaur";
+		Cmove1 = "tackle";
+		Cmove2 = "Absorb";
+		Cmove3 = "Razor Leaf";
+		Cmove4 = "Vine Whip";
+	}
+
+	//starting the battle and 
+	while (!(Phealth <= 1 || Chealth <= 1) ) {
+	var Pmove = prompt(`what attack would you like to use \n 1) ${Pmove1} PP: ${Pmove1PP} \n 2) ${Pmove2} PP: ${Pmove2PP} \n 3) ${Pmove3} PP: ${Pmove3PP} \n 4) ${Pmove4} PP: ${Pmove4PP} \n your ${pokemon} is at ${Phealth} \n the wild ${Cpokemon} is at ${Chealth}`);
+	Pmove = parseInt(Pmove)
+	 while (!(Pmove >= 1 && Pmove <= 4)) {
+	Pmove = prompt(`what attack would you like to use \n 1) ${Pmove1} PP: ${Pmove1PP} \n 2) ${Pmove2} PP: ${Pmove2PP} \n 3) ${Pmove3} PP: ${Pmove3PP} \n 4) ${Pmove4} PP: ${Pmove4PP} \n your ${pokemon} is at ${Phealth} \n the wild ${Cpokemon} is at ${Chealth}`);
+	Pmove = parseInt(Pmove)
+	}
+	if (Pmove == 1) {
+		if (Pmove1PP == 0) {
+			Pmove = 0;
+		}
+	}if (Pmove == 2) {
+		if (Pmove2PP == 0) {
+			Pmove = 0;
+		}
+	}if (Pmove == 3) {
+		if (Pmove3PP == 0) {
+			Pmove = 0;
+		}
+	}if (Pmove == 4) {
+		if (Pmove4PP == 0) {
+			Pmove = 0;
+		}
+	}
+
+
+	if (Pmove == 1) {
+		Chealth = Chealth - Pmove1Damage;
+		alert(`${pokemon} did ${Pmove1Damage} damage!`)
+		Pmove1PP = Pmove1PP - 1;
+	} if (Pmove == 2) {
+		Chealth -= Pmove2Damage;
+		alert(`${pokemon} did ${Pmove2Damage} damage!`)
+		Pmove2PP = Pmove2PP - 1;
+	} if (Pmove == 3) {
+		Chealth -= Pmove3Damage;
+		alert(`${pokemon} did ${Pmove3Damage} damage!`);
+		Pmove3PP = Pmove3PP - 1;
+	} if (Pmove == 4) {
+		Chealth -= Pmove4Damage;
+		alert(`${pokemon} did ${Pmove4Damage} damage!`);
+		Pmove4PP = Pmove4PP - 1;
+	} if (Pmove1 == 0) {
+		alert("You didnt deal damage because that move is of PP");
+	}
+
+	Cmove = Math.ceil(Math.random()*4);
+	if (Cmove == 1) {
+		Phealth -= Cmove1Damage
+		alert(`${Cpokemon} did ${Cmove1Damage} damage!`);
+	} if (Cmove == 2) {
+		Phealth -= Cmove2Damage
+		alert(`${Cpokemon} did ${Cmove2Damage} damage!`);
+	} if (Cmove == 3) {
+		Phealth -= Cmove3Damage
+		alert(`${Cpokemon} did ${Cmove3Damage} damage!`);
+	} if (Cmove == 4) {
+		Phealth -= Cmove4Damage
+		alert(`${Cpokemon} did ${Cmove4Damage} damage!`);
+	}
+}
+if (!(Phealth <= 0 && Chealth <= 0)) {
+if (Phealth <= 0) {
+	alert("you lose");
+} if (Chealth <= 0) {
+	alert("you win");
+}
+} if (Phealth <= 0 && Chealth <= 0) {
+	alert("you win")
+}
+
+replay = confirm("would you like to play again?");
+}
+
+
+
+function Pcheat(playerHeath) {
+Phealth = playerHeath;
+}
+function Ccheat(ComputerHeath) {
+Chealth = ComputerHeath;
+}
+</script>
+</head>
+</html>
