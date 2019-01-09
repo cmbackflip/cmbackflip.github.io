@@ -58,7 +58,6 @@
 		background-color: red;
 	}
 	.diamondButton {
-		background-image: url("https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi5ztaFmeHfAhWrxFQKHfE0AakQjRx6BAgBEAU&url=https%3A%2F%2Fdiamond.js.org%2F&psig=AOvVaw1iXLnTHmnutJHs0CnYOgzi&ust=1547140333139832");
 		border: 1px;
 		color: white;
 		padding: 15px 32px;
@@ -68,31 +67,47 @@
 		font-size: 16px;
 		margin: 4px 2px;
 		cursor: pointer;
+		text-decoration-color: white;
 		background-color: #3399ff;
 	}
 </style>
 <head>
 	<title></title>
 </head>
-<P id="cookies"></P>
-<button class="diamondButton" onclick="diamondClick()"></button>
+<P id="diamonds" class="text">diamonds: 0</P>
+<button class="diamondButton" onclick="diamondClick(1)">Mine a diamond</button>
+<br>
+<p>cursor: ten diamonds</p>
+<button onclick = "buyUpgrade(1)">buy a cursor</button>
 <body>
 <script type="text/javascript">
-	var cookieTotal = 0
+	var diamondTotal = 0
 	var clickUpgrades = 1
 	var cursorCost = 10
-	var cookiesPerSecond = 0
-	function diamondClick() {
-		cookieTotal = cookieTotal + clickUpgrades
-		document.getElementById('cookies').innerHTML = `Cookies: ${cookieTotal}`
+	var diamondsPerSecond = 0
+	function diamondClick(type) {
+		if (type == 1) {
+		diamondTotal = diamondTotal + clickUpgrades;
+		}
+		if (type == 2) {
+			diamondTotal += diamondsPerSecond;
+		}
+		document.getElementById('diamonds').innerHTML = `diamonds: ${diamondTotal}`;
 	}
 	function buyUpgrade(upgrade) {
 		if (upgrade == 1) {
-			if (cookieTotal >= cursorCost) {
-				cookieTotal -= cursorCost
+			if (diamondTotal >= cursorCost) {
+				diamondTotal -= cursorCost
+				diamondsPerSecond += 1
 			}
 		}
 	}
+
+	window.setInterval(function() {
+	diamondClick(2)
+	}, 1000); 
+		
+	
 
 
 </script>
