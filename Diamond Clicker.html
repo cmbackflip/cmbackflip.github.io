@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+	.text {
+	background: url(http://apod.nasa.gov/apod/image/0603/coma_misti.jpg) -80px -80px;
+  	color: red;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-weight: bold;
+  	font-size: 100px;
+  	font-family: arial, helvetica;
+  	width: 600px;
+  	margin: 50px auto;
+  	text-align: center;
+	}
+	#confirm {
+	visibility: hidden;
+	text-align: center;
+	}
+	#starter {
+		visibility: visible;
+		text-align: center;
+	}
+	.confirm {
+		border: 1px;
+		color: white;
+		padding: 15px 32px;
+		border-radius: 80px;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+		background-color: black;
+	}
+	.grass {
+		border: 1px;
+		color: white;
+		padding: 15px 32px;
+		border-radius: 80px;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+		background-color: green;
+	}
+	.fire {
+		border: 1px;
+		color: white;
+		padding: 15px 32px;
+		border-radius: 80px;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+		background-color: red;
+	}
+	.diamondButton {
+		background-image: url("https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi5ztaFmeHfAhWrxFQKHfE0AakQjRx6BAgBEAU&url=https%3A%2F%2Fdiamond.js.org%2F&psig=AOvVaw1iXLnTHmnutJHs0CnYOgzi&ust=1547140333139832");
+		border: 1px;
+		color: white;
+		padding: 15px 32px;
+		border-radius: 80px;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+		background-color: #3399ff;
+	}
+</style>
+<head>
+	<title></title>
+</head>
+<P id="cookies"></P>
+<button class="diamondButton" onclick="diamondClick()"></button>
+<body>
+<script type="text/javascript">
+	var cookieTotal = 0
+	var clickUpgrades = 1
+	var cursorCost = 10
+	var cookiesPerSecond = 0
+	function diamondClick() {
+		cookieTotal = cookieTotal + clickUpgrades
+		document.getElementById('cookies').innerHTML = `Cookies: ${cookieTotal}`
+	}
+	function buyUpgrade(upgrade) {
+		if (upgrade == 1) {
+			if (cookieTotal >= cursorCost) {
+				cookieTotal -= cursorCost
+			}
+		}
+	}
+
+
+</script>
+</body>
+</html>

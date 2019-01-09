@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+#stringReverse {
+  background: url(http://apod.nasa.gov/apod/image/0603/coma_misti.jpg) -80px -80px;
+  color: red;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-weight: bold;
+  font-size: 50px;
+  font-family: arial, helvetica;
+  width: 600px;
+  margin: 50px auto;
+  text-align: center;
+}
+#TextBox {
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  font-family: arial, helvetica;
+  width: 600px;
+  margin: 50px auto;
+  text-align: center;
+}
+ #vowelCounter {
+  background: url(http://apod.nasa.gov/apod/image/0603/coma_misti.jpg) -80px -80px;
+  color: red;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-weight: bold;
+  font-size: 50px;
+  font-family: arial, helvetica;
+  width: 600px;
+  margin: 50px auto;
+  text-align: center;
+}
+.confirm {
+		border: 1px;
+		color: white;
+		padding: 15px 32px;
+		border-radius: 80px;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+		background-color: black;
+}
+
+	</style>
+	<title></title>
+</head>
+	<p id="stringReverse">Reverse text"</p>
+	<input type="text" name="Text goes here." >
+	<button class="confirm">confirm</button>
+
+	<p id="vowelCounter">counts vowels</p>
+	<input type="text" name="Text goes here." id="vowelText">
+	<button class="confirm" onclick="vowelCounter()">confirm</button>
+<body>
+	<script type="text/javascript">
+		function vowelCounter() {
+			var input = document.getElementById('vowelText').value;
+			input = input.toLowerCase();
+			var length = input.length;
+			var sc = 0;
+			var vowelsN = 0;
+			while (!(length == 0)) {
+				isVowel = input.substr(sc, 1);
+				sc += 1;
+				if (isVowel == "a" || isVowel == "e" || isVowel == "i" || isVowel == "o" || isVowel == "u" || isVowel == "y") {
+				vowelsN += 1;
+			} 
+			length -= 1
+			}
+			document.getElementById('vowelCounter').innerHTML = `The number of Vowels in this is ${vowelsN}.`;
+		}
+	</script>
+
+</body>
+</html>
